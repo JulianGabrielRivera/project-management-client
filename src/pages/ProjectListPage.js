@@ -9,11 +9,21 @@ import AddProject from "../components/AddProject";
 
 const API_URL = BaseUrl;
 
-function ProjectListPage({ projects, setProjects, getAllProjects, message }) {
+function ProjectListPage({
+  projects,
+  setProjects,
+  getAllProjects,
+  message,
+  setMessage,
+}) {
   useEffect(() => {
     if (!projects.length) {
       getAllProjects();
     }
+    // we can use this isntead of settimeout but we have to take off react strictmode
+    // return () => {
+    //   setMessage("");
+    // };
   }, []);
 
   return (
